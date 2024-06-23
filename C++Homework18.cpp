@@ -24,26 +24,37 @@ int main() {
     strcpy_s(employees[2].education, sizeof(employees[2].education), "Associate Degree");
 
     strcpy_s(employees[3].surname, sizeof(employees[3].surname), "Bondarenko");
-    employees[3].birthYear = 1975;
+    employees[3].birthYear = 1959;
     strcpy_s(employees[3].position, sizeof(employees[3].position), "Director");
     employees[3].salary = 20000.25;
     strcpy_s(employees[3].education, sizeof(employees[3].education), "Master's Degree");
 
     strcpy_s(employees[4].surname, sizeof(employees[4].surname), "Kovalenko");
-    employees[4].birthYear = 1995;
+    employees[4].birthYear = 1945;
     strcpy_s(employees[4].position, sizeof(employees[4].position), "Intern");
     employees[4].salary = 8000.50;
     strcpy_s(employees[4].education, sizeof(employees[4].education), "Student");
 
+    int Year = 2024;
+
+
+    int count = 0;
     for (int i = 0; i < 5; ++i) {
-        cout << "Employee " << (i + 1) << ":" << endl;
-        cout << "Surname: " << employees[i].surname << endl;
-        cout << "Birth Year: " << employees[i].birthYear << endl;
-        cout << "Position: " << employees[i].position << endl;
-        cout << "Salary: " << employees[i].salary << endl;
-        cout << "Education: " << employees[i].education << endl;
-        cout << endl;
+        int age = Year - employees[i].birthYear;
+        if (age > 60) {
+            ++count;
+            cout << "Employee " << (i + 1) << ":" << endl;
+            cout << "Surname: " << employees[i].surname << endl;
+            cout << "Birth Year: " << employees[i].birthYear << endl;
+            cout << "Position: " << employees[i].position << endl;
+            cout << "Salary: " << employees[i].salary << endl;
+            cout << "Education: " << employees[i].education << endl;
+            cout << endl;
+        }
     }
+
+    cout << "Number of employees older than 60 years: " << count << endl;
+
 
     
 }
